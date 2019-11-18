@@ -1,0 +1,23 @@
+00000 - I have a dream speech - MLK 1660 words
+00001 - A Modest Proposal - Jonathan Swift 3397 words
+00002 - The Cask of Amontillado - Edgar Allan Poe 2354 words
+00003 - A Tell-Tale Heart - Poe 2156 words
+00004 - The Egg - Andy Weir 1055 words
+00005 - The Last Question - Asimov 5463 words
+00006 - I have no mouth and I must scream - Harlan Ellison 5891 words
+00007 - The Ones Who Walk Away From the Omelas - Ursula K. Le Guin -
+00008 -The Nine Billion Names of God - Arthur C Clarke
+00009 - The Star - Arthur C Clarke
+00010 - The Lottery - Shirley Jackson
+00011 - On seeing the 100% Perfect Girl one beautiful april morning - Murakami
+00012 - Disappointing: Microsoft confirmed that project scarlett is actually just a brothe; ... theonion
+00013 - Pokemon fans are up in arms with game freak's refusal to include a ntional sex offender registry in pokemon sword and shield - the onion
+00014 - Making Amends: Blizzard Added a Drawing of Xi Jinping Getting ... - The onion
+00015 - Ich Bin Ein Berliner - JFK
+00016 - A Date Which Will Live in Infamy - FDR
+
+Testing hash using murmur3:
+For 2^18 buckets, using only lower 18 bits of hash: 114746 unused buckets, max of 8 elems. per bucket, 43.7%
+For 2^10 buckets, lower 10 bits of hash: unused buckets: 0, max per bucket: 254. 100%
+For 2^16 buckets, lower 16 bits of hash: unused buckets: 2390, max per bucket: 12. 96%
+For 2^15 buckets, lower 15 bits of hash: unused buckets: 52, max per bucket: 18. 99.9%
