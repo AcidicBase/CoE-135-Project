@@ -5,16 +5,40 @@
 00004 - The Egg - Andy Weir 1055 words
 00005 - The Last Question - Asimov 5463 words
 00006 - I have no mouth and I must scream - Harlan Ellison 5891 words
-00007 - The Ones Who Walk Away From the Omelas - Ursula K. Le Guin -
-00008 -The Nine Billion Names of God - Arthur C Clarke
-00009 - The Star - Arthur C Clarke
-00010 - The Lottery - Shirley Jackson
-00011 - On seeing the 100% Perfect Girl one beautiful april morning - Murakami
-00012 - Disappointing: Microsoft confirmed that project scarlett is actually just a brothe; ... theonion
-00013 - Pokemon fans are up in arms with game freak's refusal to include a ntional sex offender registry in pokemon sword and shield - the onion
-00014 - Making Amends: Blizzard Added a Drawing of Xi Jinping Getting ... - The onion
-00015 - Ich Bin Ein Berliner - JFK
-00016 - A Date Which Will Live in Infamy - FDR
+00007 - The Ones Who Walk Away From the Omelas - Ursula K. Le Guin - 2839 words
+00008 -The Nine Billion Names of God - Arthur C Clarke - 2619 words
+00009 - The Star - Arthur C Clarke - 2477 words
+00010 - The Lottery - Shirley Jackson - 3450 words
+00011 - On seeing the 100% Perfect Girl one beautiful april morning - Murakami - 1475 words
+00012 - Disappointing: Microsoft confirmed that project scarlett is actually just a brothe; ... theonion - 403 words
+00013 - Pokemon fans are up in arms with game freak's refusal to include a ntional sex offender registry in pokemon sword and shield - the onion - 384 words
+00014 - Making Amends: Blizzard Added a Drawing of Xi Jinping Getting ... - The onion - 360 words
+00015 - Ich Bin Ein Berliner - JFK - 676 words
+00016 - A Date Which Will Live in Infamy - FDR 503 words
+00017 - Nightfall - Asimov 13218 words
+00018 - How to lose weight in 4 easy steps - Aaron Bleyaert 1858 words
+00019 - Cousin Tribulation's Story - Louisa May Alcott 819 words
+00020 - The Story of an Hour - Kate Chopin 1003 words
+00021 - Ali Baba and the Forty Thieves - Arabian Nights 8820 words
+00022 - The Call of Cthulhu - HP Lovecraft 11761 words
+00023 - The Monkey's Paw - WW Jacobs - 3931 words
+00024 - The brave tin soldier - Hans Christian Andersen 1736 words
+00025 - The Haunted Mind - Nathaniel Hawthorne - 1768 words
+00026 - Araby - James Joyce - 2328 words
+00027 - Regret - Kate Chopin - 1483 words
+00028 - Gift of the Magi - O. Henry - 2069 words
+00029 - Ex Oblivione - HP Lovecraft - 702 words
+00030 - The Game - Mary Roberts Rinehart - 10316
+00031 - On the Day of the Crucifixion - Leonid Andreyev - 1452 words
+00032 - A Dead Woman's Secret - Guy De Maupassant -  1395 words
+
+
+
+101821 words, 558.3 kB  0-32
+305463 words, 1674.9 kB, 0-98 (0-32 x3)
+609126 words, 3.3 MB, 0-197 (0-32 x6)
+1,218,252 words, 6.7 MB, 0-395 (0-32 x12)
+
 
 Testing hash using murmur3:
 For 2^18 buckets, using only lower 18 bits of hash: 114746 unused buckets, max of 8 elems. per bucket, 43.7%
