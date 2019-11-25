@@ -68,7 +68,7 @@ int main()
 
   clock_gettime(CLOCK_REALTIME,&startTime);
 
-  for(filenum = 0; filenum <= 16; filenum++)
+  for(filenum = 0; filenum <= 395; filenum++)
   {
     //printf("%c\n", filename[4]);
     filename[0] = '0' + ((filenum%100000)/10000);
@@ -311,8 +311,18 @@ int main()
   }
 
   clock_gettime(CLOCK_REALTIME,&endTime);
-  printf("Seconds elapsed: %ld\n", (endTime.tv_sec - startTime.tv_sec));
-  printf("Nanoseconds elapsed: %ld\n", (endTime.tv_nsec - startTime.tv_nsec));
+  long int nsec, sec;
+  sec = endTime.tv_sec - startTime.tv_sec;
+  if(endTime.tv_nsec < startTime.tv_nsec)
+  {
+    sec = sec -1;
+    nsec = (1000000000 + endTime.tv_nsec) - startTime.tv_nsec;
+  }
+  else
+  {
+    nsec = endTime.tv_nsec - startTime.tv_nsec;
+  }
+  printf("Time elapsed: %ld seconds and %ld nanoseconds\n", sec, nsec );
 
   srand(time(NULL));
   double probability;
@@ -425,62 +435,5 @@ int main()
   }
 printf("\n");
 
-
-
-  MurmurHash3_x86_32("the", strlen("the"), seed, &hash);
-  finalhash = hash&(0x00007FFF);
-  temp = &dictionary[finalhash];
-  while(temp->next != NULL)
-  {
-    if(!(strcmp(temp->word, "the")))
-    {
-      break;
-    }
-    temp = temp->next;
-  }
-  //printf("Prefix: %s:\n", temp->word);
-  printf("'the' total occurences: %d\n", temp->total_num_suffix);
-  /*
-  printf("Possible suffixes: \n");
-
-  for(int abc = 0; abc <16; abc++)
-  {
-    printf("%d\n", abc);
-    spretemp = temp->suffix[abc];
-    if(spretemp != NULL)
-    {
-      while(spretemp->next != NULL)
-      {
-        printf("%s, ", spretemp->word);
-        printf("%d\n", spretemp->total_num_suffix);
-        spretemp = spretemp->next;
-      }
-      printf("%s, ", spretemp->word);
-      printf("%d\n", spretemp->total_num_suffix);
-    }
-  }
-  */
-  /*
-  for (int abc = 0; abc < 32768; abc++)
-  {
-    temp = &dictionary[abc];
-    if(temp->word[0] == '\0')
-    {
-
-    }
-    else
-    {
-      //printf("%d\n",abc);
-      while(temp->next != NULL)
-      {
-        printf("%s-%d ", temp->word, temp->total_num_suffix);
-        temp = temp->next;
-      }
-      printf("%s-%d \n", temp->word, temp->total_num_suffix);
-    }
-
-
-  }
-*/
   return 0;
 }
