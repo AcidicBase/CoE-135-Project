@@ -7,8 +7,8 @@
 #include <time.h>
 #include <pthread.h>
 
-#define threadCount 4 //NOTE CHANGE THIS LINE IF YOU WANT TO CHANGE NUMBER OF THREADS
-#define fileTot 16 //NOTE CHANGE THIS TO DEFINE HOW MANY FILES TO ANALYZE
+#define threadCount 2 //NOTE CHANGE THIS LINE IF YOU WANT TO CHANGE NUMBER OF THREADS
+#define fileTot 395 //NOTE CHANGE THIS TO DEFINE HOW MANY FILES TO ANALYZE
 
 typedef struct dict_entry{
   char word[32];
@@ -51,10 +51,9 @@ void* dictBuild()
   uint32_t suffixhash;
   int finalsuffixhash;
   char filename[10] = "00000.txt";
+  int filenumlocal;
 
-  dict_entry *temp;
   dict_entry *pretemp;
-  suff_entry *spretemp;
   suff_entry *stemp;
   start_entry *startTemp;
 
@@ -69,14 +68,16 @@ void* dictBuild()
     }
     else
     {
-      filename[0] = '0' + ((filenum%100000)/10000);
-      filename[1] = '0' + ((filenum%10000)/1000);
-      filename[2] = '0' + ((filenum%1000)/100);
-      filename[3] = '0' + ((filenum%100)/10);
-      filename[4] = '0' + filenum%10;
+      filenumlocal = filenum;
       filenum++;
     }
     pthread_mutex_unlock(&filenum_lock);
+
+    filename[0] = '0' + ((filenumlocal%100000)/10000);
+    filename[1] = '0' + ((filenumlocal%10000)/1000);
+    filename[2] = '0' + ((filenumlocal%1000)/100);
+    filename[3] = '0' + ((filenumlocal%100)/10);
+    filename[4] = '0' + filenumlocal%10;
 
     f = fopen(filename, "rb");
     buf = fgetc(f);
@@ -367,8 +368,18 @@ int main()
   }
 
   clock_gettime(CLOCK_REALTIME,&endTime);
-  printf("Seconds elapsed: %ld\n", (endTime.tv_sec - startTime.tv_sec));
-  printf("Nanoseconds elapsed: %ld\n", (endTime.tv_nsec - startTime.tv_nsec));
+  long int nsec, sec;
+  sec = endTime.tv_sec - startTime.tv_sec;
+  if(endTime.tv_nsec < startTime.tv_nsec)
+  {
+    sec = sec -1;
+    nsec = (1000000000 + endTime.tv_nsec) - startTime.tv_nsec;
+  }
+  else
+  {
+    nsec = endTime.tv_nsec - startTime.tv_nsec;
+  }
+  printf("Time elapsed: %ld seconds and %ld nanoseconds\n", sec, nsec );
 
   dict_entry *temp;
   //dict_entry *pretemp;
@@ -495,62 +506,5 @@ int main()
   }
 printf("\n");
 
-
-
-  MurmurHash3_x86_32("the", strlen("the"), seed, &hash);
-  finalhash = hash&(0x00007FFF);
-  temp = &dictionary[finalhash];
-  while(temp->next != NULL)
-  {
-    if(!(strcmp(temp->word, "the")))
-    {
-      break;
-    }
-    temp = temp->next;
-  }
-  //printf("Prefix: %s:\n", temp->word);
-  printf("'the' total occurences: %d\n", temp->total_num_suffix);
-  /*
-  printf("Possible suffixes: \n");
-
-  for(int abc = 0; abc <16; abc++)
-  {
-    printf("%d\n", abc);
-    spretemp = temp->suffix[abc];
-    if(spretemp != NULL)
-    {
-      while(spretemp->next != NULL)
-      {
-        printf("%s, ", spretemp->word);
-        printf("%d\n", spretemp->total_num_suffix);
-        spretemp = spretemp->next;
-      }
-      printf("%s, ", spretemp->word);
-      printf("%d\n", spretemp->total_num_suffix);
-    }
-  }
-  */
-  /*
-  for (int abc = 0; abc < 32768; abc++)
-  {
-    temp = &dictionary[abc];
-    if(temp->word[0] == '\0')
-    {
-
-    }
-    else
-    {
-      //printf("%d\n",abc);
-      while(temp->next != NULL)
-      {
-        printf("%s-%d ", temp->word, temp->total_num_suffix);
-        temp = temp->next;
-      }
-      printf("%s-%d \n", temp->word, temp->total_num_suffix);
-    }
-
-
-  }
-*/
   return 0;
 }
